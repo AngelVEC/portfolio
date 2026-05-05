@@ -32,3 +32,44 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
+
+/* Button CSS*/
+.btn-primary {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: var(--neon);
+  border: none;
+  padding: 14px 32px;
+  cursor: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.btn-primary:hover {
+  background: #cfff6e;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neon);
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  padding: 14px 32px;
+  cursor: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.btn-secondary:hover {
+  border-color: var(--neon);
+  background: var(--neon-glow);
+  transform: translateY(-2px);
+}
