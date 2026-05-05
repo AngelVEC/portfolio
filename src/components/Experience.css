@@ -1,0 +1,152 @@
+.exp-section {
+  background: var(--navy-2);
+  position: relative;
+  z-index: 1;
+}
+
+/* Timeline wrapper */
+.exp-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+/* Each item */
+.exp-item {
+  position: relative;
+  padding-bottom: 3.5rem;
+  padding-left: 2.5rem;
+}
+.exp-item.last {
+  padding-bottom: 0;
+}
+
+/* Timeline dot */
+.exp-dot {
+  position: absolute;
+  left: calc(-2.5rem - 0.5px);
+  top: 5px;
+  width: 9px;
+  height: 9px;
+  background: var(--navy-2);
+  border: 1.5px solid var(--neon-dim);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.exp-item.active .exp-dot {
+  background: var(--neon);
+  border-color: var(--neon);
+  box-shadow: 0 0 0 4px var(--neon-glow);
+}
+
+/* Text */
+.exp-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--neon);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.exp-role {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+.exp-company {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Bullets */
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.exp-bullets li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding-left: 1.4rem;
+  position: relative;
+  line-height: 1.6;
+}
+.exp-arrow {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--neon);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* Company link */
+.exp-company-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.exp-company-link:hover {
+  color: var(--neon);
+}
+
+/* Education grid */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.edu-card {
+  background: var(--navy-3);
+  border: 1px solid var(--border);
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.edu-card:hover {
+  border-color: var(--border-bright);
+  transform: translateY(-3px);
+}
+.edu-card-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon), transparent);
+}
+
+.edu-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--neon);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.edu-degree {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.edu-school {
+  font-size: 13px;
+  color: var(--text-muted);
+}
