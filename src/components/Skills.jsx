@@ -1,19 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { Reveal } from '../hooks/useScrollReveal.jsx';
 import './Skills.css';
-
-function FadeSection({ children, style }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) ref.current?.classList.add('visible'); },
-      { threshold: 0.1 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return <div ref={ref} className="fade-section" style={style}>{children}</div>;
-}
 
 const SKILL_CARDS = [
   {
@@ -58,38 +44,41 @@ export default function Skills() {
   return (
     <section id="skills" className="skills-section">
       <div className="section-wrap">
-        <FadeSection>
+
+        <Reveal variant="fade-in">
           <p className="section-label">Capabilities</p>
+        </Reveal>
+        <Reveal variant="fade-section" delay="0.05s">
           <h2 className="section-title">Skills &amp; Tools</h2>
-        </FadeSection>
+        </Reveal>
 
         <div className="skills-grid">
           {SKILL_CARDS.map((card, i) => (
-            <FadeSection key={i} style={{ transitionDelay: `${i * 0.07}s`, height: '100%' }}>
+            <Reveal
+              key={i}
+              variant="fade-scale"
+              delay={`${i * 0.08}s`}
+              style={{ height: '100%' }}
+            >
               <div className="skill-card">
-                {/* top section: icon + title + desc — grows to fill space */}
                 <div className="skill-card-top">
                   <span className="skill-card-icon">{card.icon}</span>
                   <div className="skill-card-title">{card.title}</div>
                   <p className="skill-card-desc">{card.desc}</p>
                 </div>
-
-                {/* divider */}
                 <div className="skill-card-divider" />
-
-                {/* tag area — scrollable if overflow */}
                 <div className="skill-tags-scroll">
                   {card.tags.map((t) => (
                     <span key={t} className="skill-tag-box">{t}</span>
                   ))}
                 </div>
               </div>
-            </FadeSection>
+            </Reveal>
           ))}
         </div>
 
         {/* Certifications row */}
-        <FadeSection style={{ marginTop: '3rem' }}>
+        <Reveal variant="fade-section" delay="0.1s" style={{ marginTop: '3rem' }}>
           <div className="certs-row">
             <div className="cert-label">Certifications</div>
             <div className="certs-list">
@@ -123,7 +112,7 @@ export default function Skills() {
               </a>
             </div>
           </div>
-        </FadeSection>
+        </Reveal>
       </div>
     </section>
   );

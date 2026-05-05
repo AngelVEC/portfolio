@@ -87,15 +87,63 @@ body::before {
   50%       { opacity: 0; }
 }
 
-/* ── Scroll-reveal utility ───────────────────────────────────── */
+/* ── Scroll-reveal utilities ────────────────────────────────── */
+
+/* Fade up (default) */
 .fade-section {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fade-section.visible {
   opacity: 1;
   transform: none;
+}
+
+/* Fade from left */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-left.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fade from right */
+.fade-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fade in only — good for dividers/lines */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* Scale up — good for cards/stat numbers */
+.fade-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-scale.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ── Shared tag pill ─────────────────────────────────────────── */

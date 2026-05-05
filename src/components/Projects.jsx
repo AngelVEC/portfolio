@@ -1,19 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { Reveal } from '../hooks/useScrollReveal.jsx';
 import './Projects.css';
-
-function FadeSection({ children, style }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) ref.current?.classList.add('visible'); },
-      { threshold: 0.1 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return <div ref={ref} className="fade-section" style={style}>{children}</div>;
-}
 
 function IconLink() {
   return (
@@ -54,14 +40,12 @@ const PROJECTS = [
     title: 'PDF-Form Tools',
     desc: 'Web-based platform for uploading and completing PDF forms digitally. Includes automated form-field detection, manual field adjustment, and a full backend for processing and storing user-submitted form data.',
     stack: ['.NET', 'SQLite', 'Azure Blob'],
-    
   },
   {
     num: '04',
     title: 'Secure File Sharing',
     desc: 'A secure file-sharing platform with end-to-end encryption using Shamir\'s Secret Sharing. Integrates Gmail API for MFA authentication, AWS EC2 management, and Firestore for NoSQL storage. Includes a full OWASP Top 10 penetration test with documented findings.',
     stack: ['Python', 'AWS EC2', 'Firestore', 'Gmail API', 'MFA', 'OWASP'],
-    githubHref: 'https://github.com/AngelVEC/public-secure-file-sharing',
   },
   {
     num: '05',
@@ -75,14 +59,17 @@ export default function Projects() {
   return (
     <section id="projects" className="projects-section">
       <div className="section-wrap">
-        <FadeSection>
+
+        <Reveal variant="fade-in">
           <p className="section-label">Selected Work</p>
+        </Reveal>
+        <Reveal variant="fade-section" delay="0.05s">
           <h2 className="section-title">Projects</h2>
-        </FadeSection>
+        </Reveal>
 
         <div className="projects-list">
           {PROJECTS.map((p, i) => (
-            <FadeSection key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
+            <Reveal key={i} variant="fade-section" delay={`${i * 0.1}s`}>
               <div className="project-card">
                 <div className="project-body">
                   <div className="project-num">{p.num}</div>
@@ -107,7 +94,7 @@ export default function Projects() {
                   )}
                 </div>
               </div>
-            </FadeSection>
+            </Reveal>
           ))}
         </div>
       </div>

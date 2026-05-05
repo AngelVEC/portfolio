@@ -1,19 +1,5 @@
-import { useRef, useEffect } from 'react';
+import { Reveal } from '../hooks/useScrollReveal.jsx';
 import './About.css';
-
-function FadeSection({ children, className = '' }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) ref.current?.classList.add('visible'); },
-      { threshold: 0.1 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return <div ref={ref} className={`fade-section ${className}`}>{children}</div>;
-}
 
 const INFO_ITEMS = [
   { icon: '📍', label: 'Location',  value: 'Auckland, New Zealand' },
@@ -27,13 +13,17 @@ export default function About() {
   return (
     <section id="about" className="about-section">
       <div className="section-wrap">
-        <FadeSection>
+
+        <Reveal variant="fade-in">
           <p className="section-label">About Me</p>
+        </Reveal>
+        <Reveal variant="fade-section" delay="0.05s">
           <h2 className="section-title">Who I Am</h2>
-        </FadeSection>
+        </Reveal>
 
         <div className="about-grid">
-          <FadeSection>
+          {/* Bio — slides in from left */}
+          <Reveal variant="fade-left" delay="0.1s">
             <div className="about-text">
               <p>
                 I'm a <strong>software developer</strong> specialising in full-stack web
@@ -46,13 +36,14 @@ export default function About() {
                 Since then, I've been focused polishing myself on building AI-powered products that solve real problems and automate the tedious process.
               </p>
               <p>
-                When I'm not coding, I'm exploring the latest news regarding <strong>Cyber Security</strong>.  
+                When I'm not coding, I'm exploring the latest news regarding <strong>Cyber Security</strong>.
                 I believe that to write a robust web application, security should be the top priority.
               </p>
             </div>
-          </FadeSection>
+          </Reveal>
 
-          <FadeSection>
+          {/* Info card — slides in from right */}
+          <Reveal variant="fade-right" delay="0.2s">
             <div className="about-card">
               <div className="about-card-top-bar" />
               {INFO_ITEMS.map((item, i) => (
@@ -68,7 +59,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </FadeSection>
+          </Reveal>
         </div>
       </div>
     </section>
