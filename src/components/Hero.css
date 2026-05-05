@@ -93,6 +93,69 @@
   animation: fadeUp 0.7s 0.35s ease both;
 }
 
+/* Contact pills */
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  animation: fadeUp 0.7s 0.42s ease both;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  cursor: none;
+}
+.hero-pill:hover {
+  color: var(--neon);
+  border-color: var(--border-bright);
+  background: var(--neon-glow);
+}
+.hero-pill-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* Specialty badges */
+.hero-badges {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  background: var(--neon-glow);
+  transition: border-color 0.2s, color 0.2s;
+}
+.hero-badge:hover {
+  border-color: var(--border-bright);
+  color: var(--neon);
+}
+.hero-badge-icon {
+  font-size: 14px;
+}
+
 /* Stats */
 .hero-stats {
   display: flex;
