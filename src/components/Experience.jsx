@@ -1,25 +1,11 @@
-import { useRef, useEffect } from 'react';
+import { Reveal } from '../hooks/useScrollReveal.jsx';
 import './Experience.css';
-
-function FadeSection({ children, style }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) ref.current?.classList.add('visible'); },
-      { threshold: 0.1 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return <div ref={ref} className="fade-section" style={style}>{children}</div>;
-}
 
 const JOBS = [
   {
     active: true,
     date: 'Sep 2024 — May 2025',
-    role: 'Software Developer (Internship)',
+    role: 'Software Developer Intern',
     company: 'AdviserAide Ltd. — Auckland, New Zealand',
     link: 'https://www.adviseraide.com/',
     bullets: [
@@ -60,14 +46,16 @@ export default function Experience() {
       <div className="section-wrap">
 
         {/* Work Experience */}
-        <FadeSection>
+        <Reveal variant="fade-in">
           <p className="section-label">Career</p>
+        </Reveal>
+        <Reveal variant="fade-section" delay="0.05s">
           <h2 className="section-title">Experience</h2>
-        </FadeSection>
+        </Reveal>
 
         <div className="exp-timeline">
           {JOBS.map((job, i) => (
-            <FadeSection key={i} style={{ transitionDelay: `${i * 0.12}s` }}>
+            <Reveal key={i} variant="fade-left" delay={`${i * 0.12}s`}>
               <div className={`exp-item${job.active ? ' active' : ''}${i === JOBS.length - 1 ? ' last' : ''}`}>
                 <div className="exp-dot" />
                 <div className="exp-date">{job.date}</div>
@@ -80,33 +68,35 @@ export default function Experience() {
                 </div>
                 <ul className="exp-bullets">
                   {job.bullets.map((b, j) => (
-                    <li key={j}>
+                    <li key={j} style={{ transitionDelay: `${0.1 + j * 0.06}s` }}>
                       <span className="exp-arrow">→</span>
                       {b}
                     </li>
                   ))}
                 </ul>
               </div>
-            </FadeSection>
+            </Reveal>
           ))}
         </div>
 
         {/* Education */}
-        <FadeSection style={{ marginTop: '5rem' }}>
+        <Reveal variant="fade-in" style={{ marginTop: '5rem' }}>
           <p className="section-label">Academic</p>
+        </Reveal>
+        <Reveal variant="fade-section" delay="0.05s">
           <h2 className="section-title">Education</h2>
-        </FadeSection>
+        </Reveal>
 
         <div className="edu-grid">
           {EDUCATION.map((edu, i) => (
-            <FadeSection key={i} style={{ transitionDelay: `${i * 0.1}s` }}>
+            <Reveal key={i} variant="fade-scale" delay={`${i * 0.12}s`}>
               <div className="edu-card">
                 <div className="edu-card-top-bar" />
                 <div className="edu-date">{edu.date}</div>
                 <div className="edu-degree">{edu.degree}</div>
                 <div className="edu-school">{edu.school}</div>
               </div>
-            </FadeSection>
+            </Reveal>
           ))}
         </div>
 
