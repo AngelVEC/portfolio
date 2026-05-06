@@ -1,0 +1,99 @@
+.hw-wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Top bar ── */
+.hw-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px 8px;
+  flex-shrink: 0;
+}
+
+.hw-dots {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.hw-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(185,255,75,0.35);
+  background: transparent;
+  cursor: none;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.hw-dot.active {
+  background: var(--neon);
+  border-color: var(--neon);
+  box-shadow: 0 0 6px var(--neon);
+  transform: scale(1.25);
+}
+.hw-dot:hover:not(.active) {
+  background: rgba(185,255,75,0.25);
+}
+
+.hw-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ── Stage ── */
+.hw-stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.hw-panel {
+  width: 100%;
+  height: 100%;
+}
+
+/* Slide-in animations */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.hw-enter-right { animation: slideInRight 0.35s cubic-bezier(0.16,1,0.3,1) both; }
+.hw-enter-left  { animation: slideInLeft  0.35s cubic-bezier(0.16,1,0.3,1) both; }
+
+/* ── Prev / Next arrows ── */
+.hw-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px; height: 44px;
+  background: rgba(5,13,26,0.75);
+  border: 1px solid rgba(185,255,75,0.18);
+  color: var(--neon);
+  font-size: 22px;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none;
+  transition: background 0.2s, border-color 0.2s;
+  backdrop-filter: blur(4px);
+  padding: 0;
+  z-index: 10;
+}
+.hw-arrow:hover {
+  background: rgba(185,255,75,0.12);
+  border-color: rgba(185,255,75,0.5);
+}
+.hw-arrow-left  { left: 0; }
+.hw-arrow-right { right: 0; }

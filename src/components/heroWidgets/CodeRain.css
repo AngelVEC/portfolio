@@ -1,0 +1,27 @@
+.coderain-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid rgba(185,255,75,0.12);
+  overflow: hidden;
+}
+
+.coderain-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--navy);
+}
+
+.coderain-overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  pointer-events: none;
+}
+.coderain-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(185,255,75,0.3);
+  letter-spacing: 0.1em;
+}
