@@ -91,7 +91,7 @@ export default function Hero() {
 
         <div className="hero-stats">
           {[
-            ['2+',  'Years Experience'],
+            ['8+',  'Months Professional Experience'],
             ['10+', 'Projects'],
             ['3+',  'AI Integrations'],
           ].map(([num, label]) => (
