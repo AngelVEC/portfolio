@@ -20,7 +20,15 @@ function IconGithub() {
 
 const PROJECTS = [
   {
-    num: '01 / Featured',
+  num: '01 / Featured',
+    badge: 'Live',
+    title: 'Invoice Reconciliation AI',
+    desc: ' AI-powered invoice and payment reconciliation application using React, Node.js, and Gemini API, automatically matching invoice records against bank payments and categorizing transactions as matched, partial, or unmatched. ',
+    stack: ['Node.js', 'React', 'Gemini API', 'Vervel' ],
+    demoHref: 'https://reconcile-app-fortesting.vercel.app/',
+  },
+  {
+    num: '02 / Featured',
     badge: 'Live',
     title: 'Resume AI',
     desc: 'AI-powered resume and cover letter generator with real-time streaming via Server-Sent Events. Features a split-screen editor, section-by-section AI rewriting, ATS match scoring, PDF/DOCX parsing, and three downloadable resume templates.',
@@ -29,26 +37,26 @@ const PROJECTS = [
     githubHref: 'https://github.com/AngelVEC/Ai-Resume-Frontend',
   },
   {
-    num: '02',
+    num: '03',
     title: 'AI-Powered Product Recommendation Chatbot',
     desc: 'A chatbot that recommends products from a database using natural language queries. Uses LLM-based intent extraction to convert user input into structured search filters, with conversational memory to maintain context across the session.',
     stack: ['Python', 'Gemini Flash', 'SQLite'],
     githubHref: 'https://github.com/AngelVEC/AI-Chatbot-With-Item-Recommendation',
   },
   {
-    num: '03',
+    num: '04',
     title: 'PDF-Form Tools',
     desc: 'Web-based platform for uploading and completing PDF forms digitally. Includes automated form-field detection, manual field adjustment, and a full backend for processing and storing user-submitted form data.',
     stack: ['.NET', 'SQLite', 'Azure Blob'],
   },
   {
-    num: '04',
+    num: '05',
     title: 'Secure File Sharing',
     desc: 'A secure file-sharing platform with end-to-end encryption using Shamir\'s Secret Sharing. Integrates Gmail API for MFA authentication, AWS EC2 management, and Firestore for NoSQL storage. Includes a full OWASP Top 10 penetration test with documented findings.',
     stack: ['Python', 'AWS EC2', 'Firestore', 'Gmail API', 'MFA', 'OWASP'],
   },
   {
-    num: '05',
+    num: '06',
     title: 'Restaurant Website',
     desc: 'A responsive website for a restaurant',
     stack: ['React', '.NET', 'GraphQL', 'PostgreSQL'],
